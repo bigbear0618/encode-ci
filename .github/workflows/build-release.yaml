@@ -21,13 +21,21 @@ jobs:
         run: |
           npm i -g pnpm
           pnpm i
-          pnpm run build
+          pnpm run test
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.3
+          # 将dist目录打成zip包
+      - name: Zip Dist
+        run: zip -r dist.zip dist
+      # 创建Release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
-          BRANCH: gh-pages
-          FOLDER: dist
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
