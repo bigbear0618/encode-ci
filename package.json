@@ -20,6 +20,7 @@
     "@babel/preset-env": "7.24.3",
     "@babel/preset-typescript": "7.24.1",
     "webpack-bundle-analyzer": "4.10.1",
-    "thread-loader": "4.0.2"
+    "thread-loader": "4.0.2",
+    "chalk": "4.1.2"
   }
 }
