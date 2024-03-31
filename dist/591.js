@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdemo=self.webpackChunkdemo||[]).push([[591],{591:(e,o,s)=>{s.r(o),s.d(o,{home:()=>c});var c=function(){console.log("home")}}}]);
